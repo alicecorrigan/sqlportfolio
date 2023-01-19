@@ -75,17 +75,12 @@ GROUP BY location
 HAVING count(orderid) >=3;
 
 How many of each type of headphone were sold in February?
-
 SELECT product, sum(quantity)
 FROM BIT_DB.jansales
 WHERE product LIKE '%headphones%'
-AND length(orderid) = 6
-AND orderid <> 'Order ID'
 GROUP BY product;
 
 What was the average amount spent per account in February? 
-average amount spent / number of accounts, not the amount spent by each account. 
-
 SELECT sum(quantity*price)/count(customers.acctnum)
 FROM BIT_DB.febsales
 INNER JOIN customers
